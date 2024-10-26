@@ -1,7 +1,10 @@
 package com.jeremw.hexagonal.adapter.book;
 
+import com.jeremw.hexagonal.adapter.exception.ApplicationException;
 import com.jeremw.hexagonal.domain.Book;
+import com.jeremw.hexagonal.exception.BookNotFound;
 import com.jeremw.hexagonal.ports.input.BookService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
@@ -28,13 +31,23 @@ public class BookControllerImpl implements BookController {
 
     @Override
     public ResponseEntity<Book> getBookById(final Long bookId) {
-        Book book = bookService.getBookById(bookId);
+        Book book = null;
+        try {
+            book = bookService.getBookById(bookId);
+        } catch (Exception e) {
+            throw new ApplicationException(e.getMessage(), "BookNotFoundException", HttpStatus.NOT_FOUND);
+        }
         return ResponseEntity.ok(book);
     }
 
     @Override
     public ResponseEntity<Book> getBookByTitle(final String title) {
-        Book book = bookService.getBookByTitle(title);
+        Book book = null;
+        try {
+            book = bookService.getBookByTitle(title);
+        } catch (BookNotFound e) {
+            throw new ApplicationException(e.getMessage(), "BookNotFoundException", HttpStatus.NOT_FOUND);
+        }
         return ResponseEntity.ok(book);
     }
 
@@ -46,13 +59,22 @@ public class BookControllerImpl implements BookController {
 
     @Override
     public ResponseEntity<Book> updateBook(final Long bookId, final Book book) {
-        Book updatedBook = bookService.updateBook(bookId, book);
+        Book updatedBook = null;
+        try {
+            updatedBook = bookService.updateBook(bookId, book);
+        } catch (Exception e) {
+            throw new ApplicationException(e.getMessage(), "BookNotFoundException", HttpStatus.NOT_FOUND);
+        }
         return ResponseEntity.ok(updatedBook);
     }
 
     @Override
     public ResponseEntity<Void> deleteBookById(final Long bookId) {
-        bookService.deleteBookById(bookId);
+        try {
+            bookService.deleteBookById(bookId);
+        } catch (Exception e) {
+            throw new ApplicationException(e.getMessage(), "BookNotFoundException", HttpStatus.NOT_FOUND);
+        }
         return ResponseEntity.noContent().build();
     }
 }
