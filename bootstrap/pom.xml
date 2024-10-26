@@ -40,6 +40,11 @@
                     <artifactId>adapter-rest</artifactId>
                     <version>${project.version}</version>
                 </dependency>
+                <dependency>
+                    <groupId>com.jeremw.hexagonal</groupId>
+                    <artifactId>adapter-data-loader</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -64,6 +69,10 @@
         <dependency>
             <groupId>com.jeremw.hexagonal</groupId>
             <artifactId>adapter-rest</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.jeremw.hexagonal</groupId>
+            <artifactId>adapter-data-loader</artifactId>
         </dependency>
     </dependencies>
 

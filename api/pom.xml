@@ -14,6 +14,7 @@
 
     <modules>
         <module>adapter-rest</module>
+        <module>adapter-data-loader</module>
     </modules>
 
 
