@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.jeremw.hexagonal</groupId>
+        <artifactId>api</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>adapter-data-loader</artifactId>
+    <packaging>jar</packaging>
+
+    <name>adapter-data-loader</name>
+
+    <properties>
+        <javafaker.version>0.15</javafaker.version>
+        <project.version>1.0.0-SNAPSHOT</project.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.github.javafaker</groupId>
+                <artifactId>javafaker</artifactId>
+                <version>${javafaker.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.jeremw.hexagonal</groupId>
+                <artifactId>domain</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.jeremw.hexagonal</groupId>
+                <artifactId>application</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.jeremw.hexagonal</groupId>
+            <artifactId>domain</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.jeremw.hexagonal</groupId>
+            <artifactId>application</artifactId>
+        </dependency>
+    </dependencies>
+</project>

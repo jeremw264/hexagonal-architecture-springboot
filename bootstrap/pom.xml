@@ -1,0 +1,88 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>bootstrap</artifactId>
+
+    <packaging>jar</packaging>
+
+    <name>bootstrap</name>
+
+    <parent>
+        <groupId>com.jeremw.hexagonal</groupId>
+        <artifactId>hexagonal-architecture-spring</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <project.version>1.0.0-SNAPSHOT</project.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+                <dependency>
+                    <groupId>com.jeremw.hexagonal</groupId>
+                    <artifactId>domain</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>com.jeremw.hexagonal</groupId>
+                    <artifactId>application</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>com.jeremw.hexagonal</groupId>
+                    <artifactId>adapter-spring-data-jpa</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>com.jeremw.hexagonal</groupId>
+                    <artifactId>adapter-rest</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>com.jeremw.hexagonal</groupId>
+                    <artifactId>adapter-data-loader</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jeremw.hexagonal</groupId>
+            <artifactId>domain</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.jeremw.hexagonal</groupId>
+            <artifactId>application</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.jeremw.hexagonal</groupId>
+            <artifactId>adapter-spring-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.jeremw.hexagonal</groupId>
+            <artifactId>adapter-rest</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.jeremw.hexagonal</groupId>
+            <artifactId>adapter-data-loader</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
